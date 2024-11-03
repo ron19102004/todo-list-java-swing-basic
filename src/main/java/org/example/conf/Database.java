@@ -15,7 +15,7 @@ public class Database {
     public static void connect(DatabaseProperties databaseProperties) throws SQLException {
         new com.mysql.jdbc.Driver();
         String URL = "jdbc:mysql://" + databaseProperties.getHost() + ":" +
-                databaseProperties.getPort() + "/" + databaseProperties.getDatabaseName();
+                databaseProperties.getPort() + "/" + databaseProperties.getDatabaseName()+"?createDatabaseIfNotExist=true";
         Database.connection = DriverManager.getConnection(URL, databaseProperties.getUsername(), databaseProperties.getPassword());
         if (Database.connection != null){
             System.out.println("Connect database successfully!");
